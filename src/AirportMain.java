@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 import Controller.APIUtil;
 import Controller.FlightManager;
@@ -50,27 +51,33 @@ public class AirportMain {
         FlightManager fm = new FlightManager();
 
         while (true) {
-            MenuViewer.departMenuView();
-            choice = MenuViewer.choice.nextInt();
-            MenuViewer.choice.nextLine();
-            switch (choice) {
-                case SELECT_CHOICE.LOAD:
-                    flightInfoList = APIUtil.departConnection();
-                    break;
-                case SELECT_CHOICE.SAVE:
-                    fm.insertInfo(flightInfoList);
-                    break;
-                case SELECT_CHOICE.SEARCH:
-                    fm.searchInfo();
-                    break;
-                case SELECT_CHOICE.DELETE:
-                    fm.AllInfoDelete();
-                    break;
-                case SELECT_CHOICE.BACK:
-                    return;
-                default:
-                    System.out.println("Please only enter the appropriate menu number.");
-            } // end of switch
+            try{
+                MenuViewer.departMenuView();
+                choice = MenuViewer.choice.nextInt();
+                MenuViewer.choice.nextLine();
+                switch (choice) {
+                    case SELECT_CHOICE.LOAD:
+                        flightInfoList = APIUtil.departConnection();
+                        break;
+                    case SELECT_CHOICE.SAVE:
+                        fm.insertInfo(flightInfoList);
+                        break;
+                    case SELECT_CHOICE.SEARCH:
+                        fm.searchInfo();
+                        break;
+                    case SELECT_CHOICE.DELETE:
+                        fm.AllInfoDelete();
+                        break;
+                    case SELECT_CHOICE.BACK:
+                        return;
+                    default:
+                        System.out.println("Please only enter the appropriate menu number.");
+                } // end of switch
+            }catch(InputMismatchException e){
+                e.printStackTrace();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -81,27 +88,33 @@ public class AirportMain {
         FlightManager fm = new FlightManager();
 
         while (true) {
-            MenuViewer.arrivalMenuView();
-            choice = MenuViewer.choice.nextInt();
-            MenuViewer.choice.nextLine();
-            switch (choice) {
-                case SELECT_CHOICE.LOAD:
-                    flightInfoList = APIUtil.arriveConnection();
-                    break;
-                case SELECT_CHOICE.SAVE:
-                    fm.insertInfo(flightInfoList);
-                    break;
-                case SELECT_CHOICE.SEARCH:
-                    fm.searchInfo();
-                    break;
-                case SELECT_CHOICE.DELETE:
-                    fm.AllInfoDelete();
-                    break;
-                case SELECT_CHOICE.BACK:
-                    return;
-                default:
-                    System.out.println("Please only enter the appropriate menu number.");
-            } // end of switch
+            try{
+                MenuViewer.arrivalMenuView();
+                choice = MenuViewer.choice.nextInt();
+                MenuViewer.choice.nextLine();
+                switch (choice) {
+                    case SELECT_CHOICE.LOAD:
+                        flightInfoList = APIUtil.arriveConnection();
+                        break;
+                    case SELECT_CHOICE.SAVE:
+                        fm.insertInfo(flightInfoList);
+                        break;
+                    case SELECT_CHOICE.SEARCH:
+                        fm.searchInfo();
+                        break;
+                    case SELECT_CHOICE.DELETE:
+                        fm.AllInfoDelete();
+                        break;
+                    case SELECT_CHOICE.BACK:
+                        return;
+                    default:
+                        System.out.println("Please only enter the appropriate menu number.");
+                } // end of switch
+            } catch(InputMismatchException e){
+                e.printStackTrace();
+            } catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 

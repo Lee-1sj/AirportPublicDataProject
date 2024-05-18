@@ -211,9 +211,9 @@ public class FlightDAO {
            
             int i = pstmt.executeUpdate();
             if (i == 1) {
-                System.out.println("Flight Info delete failed.");
-            } else {    
                 System.out.println("Flight Info delete success.");
+            } else {    
+                System.out.println("Flight Info delete failed.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
