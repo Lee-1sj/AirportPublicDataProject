@@ -8,7 +8,7 @@ import Model.FlightInfo;
 public class FlightManager {
     public static Scanner sc = new Scanner(System.in);
     //도착편 정보를 저장
-    public void insertArrivalInfo(ArrayList<FlightInfo> flightInfoList) {
+    public void insertInfo(ArrayList<FlightInfo> flightInfoList) {
         FlightDAO fd = new FlightDAO();
         
         if(flightInfoList.size() < 1) {
@@ -23,7 +23,7 @@ public class FlightManager {
 
 
     //도착편 정보를 검색
-    public void searchArrivalInfo() {
+    public void searchInfo() {
         FlightDAO fd = new FlightDAO();
 
         System.out.println();
@@ -36,7 +36,7 @@ public class FlightManager {
     } //end of searchArrivalInfo()
 
     //db 삭제
-    public void deleteArrivalInfo() {
+    public void AllInfoDelete() {
         FlightDAO fd = new FlightDAO();
         
         System.out.println();

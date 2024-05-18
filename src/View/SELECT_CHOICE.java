@@ -1,6 +1,6 @@
 package View;
 
-public interface ARRIVAL_CHOICE {
+public interface SELECT_CHOICE {
     int LOAD = 1;
     int SAVE = 2;
     int SEARCH = 3;

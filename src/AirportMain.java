@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import Controller.APIUtil;
 import Controller.FlightManager;
 import Model.FlightInfo;
-import View.ARRIVAL_CHOICE;
+import View.SELECT_CHOICE;
 import View.MENU_CHOICE;
 import View.MenuViewer;
 
@@ -46,21 +46,27 @@ public class AirportMain {
     // 출발 항공편 메뉴
     public static void departMenu() {
         int choice;
+        ArrayList<FlightInfo> flightInfoList = new ArrayList<>();
+        FlightManager fm = new FlightManager();
 
         while (true) {
             MenuViewer.departMenuView();
             choice = MenuViewer.choice.nextInt();
             MenuViewer.choice.nextLine();
             switch (choice) {
-                case ARRIVAL_CHOICE.LOAD:
+                case SELECT_CHOICE.LOAD:
+                    flightInfoList = APIUtil.departConnection();
                     break;
-                case ARRIVAL_CHOICE.SAVE:
+                case SELECT_CHOICE.SAVE:
+                    fm.insertInfo(flightInfoList);
                     break;
-                case ARRIVAL_CHOICE.SEARCH:
+                case SELECT_CHOICE.SEARCH:
+                    fm.searchInfo();
                     break;
-                case ARRIVAL_CHOICE.DELETE:
+                case SELECT_CHOICE.DELETE:
+                    fm.AllInfoDelete();
                     break;
-                case ARRIVAL_CHOICE.BACK:
+                case SELECT_CHOICE.BACK:
                     return;
                 default:
                     System.out.println("Please only enter the appropriate menu number.");
@@ -79,25 +85,24 @@ public class AirportMain {
             choice = MenuViewer.choice.nextInt();
             MenuViewer.choice.nextLine();
             switch (choice) {
-                case ARRIVAL_CHOICE.LOAD:
+                case SELECT_CHOICE.LOAD:
                     flightInfoList = APIUtil.arriveConnection();
                     break;
-                case ARRIVAL_CHOICE.SAVE:
-                    fm.insertArrivalInfo(flightInfoList);
+                case SELECT_CHOICE.SAVE:
+                    fm.insertInfo(flightInfoList);
                     break;
-                case ARRIVAL_CHOICE.SEARCH:
-                    fm.searchArrivalInfo();
+                case SELECT_CHOICE.SEARCH:
+                    fm.searchInfo();
                     break;
-                case ARRIVAL_CHOICE.DELETE:
-                    fm.deleteArrivalInfo();
+                case SELECT_CHOICE.DELETE:
+                    fm.AllInfoDelete();
                     break;
-                case ARRIVAL_CHOICE.BACK:
+                case SELECT_CHOICE.BACK:
                     return;
                 default:
                     System.out.println("Please only enter the appropriate menu number.");
             } // end of switch
         }
-
     }
 
 }

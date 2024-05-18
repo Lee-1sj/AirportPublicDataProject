@@ -11,7 +11,7 @@ import Model.FlightInfo;
 public class FlightDAO {
     // 데이터 삭제
     public void deleteInitialInfo() {
-        String sql = "delete from flight";
+        String sql = "{CALL delete_flight_info}";
         Connection con = null;
         PreparedStatement pstmt = null;
 
@@ -201,7 +201,7 @@ public class FlightDAO {
             System.out.println("There is no air info history.");
             return;
         }
-        String sql = "delete from flight";
+        String sql = "{CALL delete_flight_info}";
         Connection con = null;
         PreparedStatement pstmt = null;
 
