@@ -17,7 +17,6 @@ public class FlightManager {
                 System.out.println("There is no list.");
                 return;
             }
-
             fd.deleteInitialInfo(); // 이전 데이터 삭제
             fd.saveFlightInfo(flightInfoList); // 저장
         } catch (Exception e) {
@@ -33,7 +32,6 @@ public class FlightManager {
             System.out.println("Enter the Flight ID you want to search for.");
             System.out.print("Flight ID >> ");
             String flightId = sc.nextLine();
-
             System.out.println();
             fd.getFlightInfo(flightId); // 해당 편명으로 정보 불러옴
         } catch (Exception e) {

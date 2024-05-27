@@ -25,18 +25,8 @@ public class FlightDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            DBUtil.closeResource(pstmt, con);
         }
-
     } // end of deleteFlightInfo()
 
     // 데이터 수
@@ -55,27 +45,14 @@ public class FlightDAO {
             if (rs.next()) {
                 count = rs.getInt("cnt");
             }
-
         } catch (SQLException se) {
             System.out.println(se);
         } catch (Exception e) {
             System.out.println(e);
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException se) {
-            }
+            DBUtil.closeResource(rs, pstmt, con);
         }
         return count;
-
     } // end of getCountFlightInfo()
 
     // 항공편 정보 저장
@@ -107,16 +84,15 @@ public class FlightDAO {
                     break;
                 }
             } // end of for
-
             if (success) {
                 System.out.println("All Flight Info Insert Success");
             } else {
                 System.out.println("Flight Info Insert Failed");
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
+            DBUtil.closeResource(pstmt, con);
             try {
                 if (pstmt != null) {
                     pstmt.close();
@@ -128,7 +104,6 @@ public class FlightDAO {
                 e.printStackTrace();
             }
         }
-
     } // end of saveFlightInfo()
 
     // 해당 항공편명이 존재하는지 체크하고, 존재하면 정보를 불러옴
@@ -144,8 +119,6 @@ public class FlightDAO {
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, flightId);
             rs = pstmt.executeQuery();
-
-            
            
             if(!rs.next()){
                 System.out.println("The flight ID does not exist.");
@@ -179,20 +152,8 @@ public class FlightDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-            }
+            DBUtil.closeResource(rs, pstmt, con);
         }
-
     } // end of flightIdOverlap()
 
     public void eliminateFlightInfo() {
@@ -220,17 +181,8 @@ public class FlightDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            DBUtil.closeResource(pstmt, con);
         }
-
     } // end of deleteFlightInfo()
+    
 }
