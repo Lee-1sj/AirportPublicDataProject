@@ -123,23 +123,20 @@ public class FlightInfo {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+
+        sb.append(
+                "--------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         sb.append(String.format("%-24s %-22s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s\n",
                 "airline", "airport", "airportCode", "carousel", "estimatedDateTime", "exitNumber", "flightId",
                 "gatenumber", "remark", "scheduleDatetime", "terminalId"));
+        sb.append(
+                "--------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         sb.append(String.format("%-24s %-22s %-11s %-11s %-16s %-10s %-10s %-10s %-10s %-16s %-10s\n",
                 airline, airport, airportCode, carousel, estimatedDateTime, exitnumber, flightId, gatenumber, remark,
                 scheduleDatetime, terminalid));
+        sb.append(
+                "--------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         return sb.toString();
     }
-
-    // System.out.println(String.format("%-24s %-22s %-10s %-5d %-5d %-5s %-5s %-5d
-    // %-5s %-5d %-5s", "airline", "airport", "airportCode", "carousel",
-    // "estimatedDateTime", "exitNumber", "flightId", "gatenumber", "remark",
-    // "sceduleDatetime", "terminalId"));
-    // System.out.println(String.format("%-24s %-22s %-10s %-5d %-5d %-5s %-5s %-5d
-    // %-5s %-5d %-5s", d.getAirline(), d.getAirport(), d.getAirportCode(),
-    // d.getCarousel(), d.getEstimatedDateTime(), d.getExitnumber(),
-    // d.getFlightId(), d.getGatenumber(), d.getRemark(), d.getScheduleDatetime(),
-    // d.getTerminalid()));
 
 }

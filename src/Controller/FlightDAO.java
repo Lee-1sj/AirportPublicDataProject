@@ -19,7 +19,7 @@ public class FlightDAO {
             con = DBUtil.getConnection();
             pstmt = con.prepareStatement(sql);
             pstmt.executeUpdate();
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
@@ -85,9 +85,15 @@ public class FlightDAO {
                 }
             } // end of for
             if (success) {
-                System.out.println("All Flight Info Insert Success");
+                System.out.println();
+                System.out.println("---------------------------------------");
+                System.out.println("    All Flight Info Insert Success");
+                System.out.println("---------------------------------------");
             } else {
-                System.out.println("Flight Info Insert Failed");
+                System.out.println();
+                System.out.println("---------------------------------------");
+                System.out.println("      Flight Info Insert Failed");
+                System.out.println("---------------------------------------");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -119,11 +125,13 @@ public class FlightDAO {
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, flightId);
             rs = pstmt.executeQuery();
-           
-            if(!rs.next()){
-                System.out.println("The flight ID does not exist.");
+
+            if (!rs.next()) {
+                System.out.println("---------------------------------------");
+                System.out.println("    The flight ID does not exist.");
+                System.out.println("---------------------------------------");
             } else {
-                do{
+                do {
                     flightInfo = new FlightInfo();
                     flightInfo.setAirline(rs.getString("airline"));
                     flightInfo.setAirport(rs.getString("airport"));
@@ -137,15 +145,26 @@ public class FlightDAO {
                     flightInfo.setScheduleDatetime(rs.getString("scheduleDatetime"));
                     flightInfo.setTerminalid(rs.getString("terminalid"));
 
-                    System.out.println(String.format("%-24s %-22s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s",
-            "airline", "airport", "airportCode", "carousel", "estimatedDateTime", "exitNumber", "flightId",
-            "gatenumber", "remark", "scheduleDatetime", "terminalId"));
+                    System.out.println(
+                            "--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                    System.out
+                            .println(String.format("%-24s %-22s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s",
+                                    "airline", "airport", "airportCode", "carousel", "estimatedDateTime", "exitNumber",
+                                    "flightId",
+                                    "gatenumber", "remark", "scheduleDatetime", "terminalId"));
+                    System.out.println(
+                            "--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
-                    System.out.println(String.format("%-24s %-22s %-11s %-11s %-16s %-10s %-10s %-10s %-10s %-16s %-10s",
-                    flightInfo.getAirline(), flightInfo.getAirport(), flightInfo.getAirportCode(), flightInfo.getCarousel(), 
-                    flightInfo.getEstimatedDateTime(), flightInfo.getExitnumber(), flightInfo.getFlightId(), 
-                    flightInfo.getGatenumber(), flightInfo.getRemark(), flightInfo.getScheduleDatetime(), flightInfo.getTerminalid()));
-                } while(rs.next());
+                    System.out.println(String.format(
+                            "%-24s %-22s %-11s %-11s %-16s %-10s %-10s %-10s %-10s %-16s %-10s",
+                            flightInfo.getAirline(), flightInfo.getAirport(), flightInfo.getAirportCode(),
+                            flightInfo.getCarousel(),
+                            flightInfo.getEstimatedDateTime(), flightInfo.getExitnumber(), flightInfo.getFlightId(),
+                            flightInfo.getGatenumber(), flightInfo.getRemark(), flightInfo.getScheduleDatetime(),
+                            flightInfo.getTerminalid()));
+                    System.out.println(
+                            "--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                } while (rs.next());
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -169,12 +188,18 @@ public class FlightDAO {
         try {
             con = DBUtil.getConnection();
             pstmt = con.prepareStatement(sql);
-           
+
             int i = pstmt.executeUpdate();
             if (i == 1) {
-                System.out.println("Flight Info delete success.");
-            } else {    
-                System.out.println("Flight Info delete failed.");
+                System.out.println();
+                System.out.println("---------------------------------------");
+                System.out.println("      Flight Info delete success.");
+                System.out.println("---------------------------------------");
+            } else {
+                System.out.println();
+                System.out.println("---------------------------------------");
+                System.out.println("      Flight Info delete failed.");
+                System.out.println("---------------------------------------");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -184,5 +209,5 @@ public class FlightDAO {
             DBUtil.closeResource(pstmt, con);
         }
     } // end of deleteFlightInfo()
-    
+
 }

@@ -31,7 +31,8 @@ public class AirportMain {
                         departMenu();
                         break;
                     case MENU_CHOICE.EXIT: // 4. 종료
-                        System.out.println("Exit the program.");
+                        System.out.println("            Exit the program.");
+                        System.out.println();
                         return;
                     default:
                         System.out.println("Please only enter the appropriate menu number.");

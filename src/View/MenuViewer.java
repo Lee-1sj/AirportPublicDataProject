@@ -7,39 +7,52 @@ public class MenuViewer {
 
     public static void mainMenuView() {
         System.out.println();
-        System.out.println("===== Incheon International Airport Info =====");
-        System.out.println("Select the menu.");
-        System.out.println("1. Arrivals");              //도착편
-        System.out.println("2. Departures");            //출발편
-        System.out.println("3. Quit");                  //종료
-        System.out.print("select >> ");
+        System.out.println();
+        System.out.println("=======================================");
+        System.out.println("   Incheon International Airport Info ");
+        System.out.println("---------------------------------------");
+        System.out.println("        Please select an option");
+        System.out.println();
+        System.out.println("            1. Arrivals");
+        System.out.println("            2. Departures");
+        System.out.println("            3. Quit");
+        System.out.println("=======================================");
+        System.out.print("            Select >> ");
     }
 
-    //항공편 도착
+    // 항공편 도착
     public static void arrivalMenuView() {
         System.out.println();
-        System.out.println("================== Arrivals ==================");
-        System.out.println("Select the menu.");
-        System.out.println("1. Load");      //로드        
-        System.out.println("2. Save");      //저장
-        System.out.println("3. Search");    //검색
-        System.out.println("4. Delete");    //삭제
-        System.out.println("5. Go back");    //뒤로
-        System.out.print("select >> ");
+        System.out.println();
+        System.out.println("=======================================");
+        System.out.println("              Arrivals               ");
+        System.out.println("---------------------------------------");
+        System.out.println("        Please select an option");
+        System.out.println();
+        System.out.println("            1. Load                  ");
+        System.out.println("            2. Save                  ");
+        System.out.println("            3. Search                 ");
+        System.out.println("            4. Delete                 ");
+        System.out.println("            5. Go back                ");
+        System.out.println("=======================================");
+        System.out.print("            Select >> ");
     }
 
     public static void departMenuView() {
         System.out.println();
-        System.out.println("================== Departures ==================");
-        System.out.println("Select the menu.");
-        System.out.println("1. Load");      //로드        
-        System.out.println("2. Save");      //저장
-        System.out.println("3. Search");    //검색
-        System.out.println("4. Delete");    //삭제
-        System.out.println("5. Go back");    //뒤로
-        System.out.print("select >> ");
+        System.out.println();
+        System.out.println("=======================================");
+        System.out.println("             Departures              ");
+        System.out.println("---------------------------------------");
+        System.out.println("        Please select an option");
+        System.out.println();
+        System.out.println("            1. Load                  ");
+        System.out.println("            2. Save                  ");
+        System.out.println("            3. Search                 ");
+        System.out.println("            4. Delete                 ");
+        System.out.println("            5. Go back                ");
+        System.out.println("=======================================");
+        System.out.print("Select >> ");
     }
-
-
 
 }

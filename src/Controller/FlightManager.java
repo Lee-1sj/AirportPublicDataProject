@@ -14,7 +14,9 @@ public class FlightManager {
         try {
             if (flightInfoList.size() < 1) {
                 System.out.println();
-                System.out.println("There is no list.");
+                System.out.println("---------------------------------------");
+                System.out.println("           There is no list.");
+                System.out.println("---------------------------------------");
                 return;
             }
             fd.deleteInitialInfo(); // 이전 데이터 삭제
@@ -45,16 +47,20 @@ public class FlightManager {
 
         try {
             System.out.println();
+            System.out.println("-------------------------------------------------------");
             System.out.println("Are you sure you want to delete Arrival Info?");
             System.out.println("Press 'Y' to delete | Press any other letter to cancel");
             System.out.print("Press >> ");
             String answer = sc.nextLine();
+            System.out.println("-------------------------------------------------------");
+            System.out.println();
 
             if (answer.equalsIgnoreCase("Y")) {
                 fd.eliminateFlightInfo();
             } else {
                 System.out.println();
                 System.out.println("The delete procedure has been canceled.");
+                System.out.println("----------------------------------------------");
             }
         } catch (Exception e) {
             e.printStackTrace();

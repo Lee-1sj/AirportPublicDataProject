@@ -67,6 +67,8 @@ public class APIUtil {
             conn = (HttpURLConnection) url.openConnection(); // 접속요청
             conn.setRequestMethod("GET"); // get방식
             conn.setRequestProperty("Content-type", "application/json");
+            System.out.println();
+            System.out.println();
             System.out.println("Response code: " + conn.getResponseCode());
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -78,7 +80,7 @@ public class APIUtil {
         try {
             // conn.getResponseCode() 서버에서 상태코드를 알려주는 값
             int statusCode = conn.getResponseCode();
-            System.out.println(statusCode);
+            //System.out.println(statusCode);
             if (statusCode >= 200 && statusCode <= 300) {
                 br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             } else {
@@ -96,7 +98,7 @@ public class APIUtil {
                 FlightInfo flightInfo = new FlightInfo();
                 // item 자식태그에 순차적으로 접근
                 for (Node node = item.getFirstChild(); node != null; node = node.getNextSibling()) {
-                    System.out.println(node.getNodeName() + " : " + node.getTextContent());
+                    //System.out.println(node.getNodeName() + " : " + node.getTextContent());
                     switch (node.getNodeName()) {
                         case "airline":
                             flightInfo.setAirline(node.getTextContent());
@@ -139,7 +141,6 @@ public class APIUtil {
             for (FlightInfo d : list) {
                 System.out.println(d);
             }
-            
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -149,7 +150,6 @@ public class APIUtil {
                 e.printStackTrace();
             }
         }
-
         return list;
     }
 
@@ -168,7 +168,6 @@ public class APIUtil {
             e.printStackTrace();
         }
         return doc;
-
     } // end of parseXML
 
     // 출발편 연결
@@ -212,6 +211,8 @@ public class APIUtil {
             conn = (HttpURLConnection) url.openConnection(); // 접속요청
             conn.setRequestMethod("GET"); // get방식
             conn.setRequestProperty("Content-type", "application/json");
+            System.out.println();
+            System.out.println();
             System.out.println("Response code: " + conn.getResponseCode());
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -223,7 +224,7 @@ public class APIUtil {
         try {
             // conn.getResponseCode() 서버에서 상태코드를 알려주는 값
             int statusCode = conn.getResponseCode();
-            System.out.println(statusCode);
+            //System.out.println(statusCode);
             if (statusCode >= 200 && statusCode <= 300) {
                 br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             } else {
@@ -241,7 +242,7 @@ public class APIUtil {
                 FlightInfo flightInfo = new FlightInfo();
                 // item 자식태그에 순차적으로 접근
                 for (Node node = item.getFirstChild(); node != null; node = node.getNextSibling()) {
-                    System.out.println(node.getNodeName() + " : " + node.getTextContent());
+                    //System.out.println(node.getNodeName() + " : " + node.getTextContent());
                     switch (node.getNodeName()) {
                         case "airline":
                             flightInfo.setAirline(node.getTextContent());
@@ -284,7 +285,6 @@ public class APIUtil {
             for (FlightInfo d : list) {
                 System.out.println(d);
             }
-            
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -294,7 +294,6 @@ public class APIUtil {
                 e.printStackTrace();
             }
         }
-
         return list;
     }
 
