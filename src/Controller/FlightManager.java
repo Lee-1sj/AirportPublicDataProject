@@ -60,7 +60,7 @@ public class FlightManager {
             } else {
                 System.out.println();
                 System.out.println("The delete procedure has been canceled.");
-                System.out.println("----------------------------------------------");
+                System.out.println("-------------------------------------------------------");
             }
         } catch (Exception e) {
             e.printStackTrace();
